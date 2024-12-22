@@ -1,0 +1,50 @@
+t = -10:0.01:10;
+T = 4;
+fm = 1/T;
+x = cos(2*pi*fm*t);
+subplot(2,2,1);
+plot(t, x);
+grid on;
+title('continuous time signal');
+xlabel('time');
+ylabel('amplitude');
+
+n1 = -4:1:4;
+fs1 = 1.6 * fm;
+fs2 = 2 * fm;
+fs3 = 8 * fm;
+x1 = cos(2*pi*fm/fs1*n1);
+subplot(2,2,2);
+stem(n1, x1);
+title('discrete time signal with fs < 2fm');
+xlabel('time');
+ylabel('x(n)');
+hold on;
+subplot(2,2,2);
+plot(n1, x1);
+grid on;
+
+n2 = -5:1:5;
+x2 = cos(2*pi*fm/fs2*n2);
+subplot(2,2,3);
+stem(n2, x2);
+title('discrete time signal with fs = 2fm');
+xlabel('time');
+ylabel('x(n)');
+hold on;
+subplot(2,2,3);
+plot(n2, x2);
+grid on;
+
+n3 = -20:1:20;
+x3 = cos(2*pi*fm/fs3*n3);
+subplot(2,2,4);
+stem(n3, x3);
+title('discrete time signal with fs > 2fm');
+xlabel('time');
+ylabel('x(n)');
+hold on;
+subplot(2,2,4);
+plot(n3, x3);
+grid on;
+
